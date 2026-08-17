@@ -4,6 +4,8 @@ Django==6.1
 django-cors-headers==4.9.0
 djangorestframework==3.18.0
 filelock==3.20.3
+gunicorn==26.0.0
+packaging==26.3
 platformdirs==4.5.1
 sqlparse==0.5.5
 tzdata==2026.3
