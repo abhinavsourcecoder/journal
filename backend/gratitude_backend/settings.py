@@ -8,14 +8,24 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
+
+# ============================================================
+# SECURITY
+# ============================================================
+
 SECRET_KEY = 'django-insecure-p99lkf!^984l!lz7erlhaty2&-(xt!#vig89##a&!lbvv5%r&r'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://journal-43cx.onrender.com']
+ALLOWED_HOSTS = [
+    'journal-43cx.onrender.com',
+]
 
-# Application definition
+
+# ============================================================
+# APPLICATIONS
+# ============================================================
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -23,13 +33,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Third party apps
+
+    # Third-party apps
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
+
     # Local apps
     'journal',
 ]
+
+
+# ============================================================
+# MIDDLEWARE
+# ============================================================
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -42,7 +59,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+# ============================================================
+# URL CONFIGURATION
+# ============================================================
+
 ROOT_URLCONF = 'gratitude_backend.urls'
+
+
+# ============================================================
+# TEMPLATES
+# ============================================================
 
 TEMPLATES = [
     {
@@ -59,10 +86,18 @@ TEMPLATES = [
     },
 ]
 
+
+# ============================================================
+# WSGI
+# ============================================================
+
 WSGI_APPLICATION = 'gratitude_backend.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/6.1/ref/settings/#databases
+
+# ============================================================
+# DATABASE
+# ============================================================
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -70,7 +105,11 @@ DATABASES = {
     }
 }
 
-# Password validation
+
+# ============================================================
+# PASSWORD VALIDATION
+# ============================================================
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -86,32 +125,70 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization
+
+# ============================================================
+# INTERNATIONALIZATION
+# ============================================================
+
 LANGUAGE_CODE = 'en-us'
+
 TIME_ZONE = 'UTC'
+
 USE_I18N = True
+
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
+
+# ============================================================
+# STATIC FILES
+# ============================================================
+
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Django REST Framework Settings
+
+# ============================================================
+# DJANGO REST FRAMEWORK
+# ============================================================
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ],
+
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
 }
 
-# CORS Settings
+
+# ============================================================
+# CORS SETTINGS
+# ============================================================
+
 CORS_ALLOW_ALL_ORIGINS = False
+
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
-    "https://journal-zeta-six.vercel.app",
+    # Local React development
+    'http://localhost:5173',
+
+    # Vercel React production
+    'https://journal-zeta-six.vercel.app',
+]
+
+
+# ============================================================
+# CSRF TRUSTED ORIGINS
+# ============================================================
+
+CSRF_TRUSTED_ORIGINS = [
+    # Local React development
+    'http://localhost:5173',
+
+    # Vercel React production
+    'https://journal-zeta-six.vercel.app',
 ]
