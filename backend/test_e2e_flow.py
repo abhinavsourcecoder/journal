@@ -3,8 +3,8 @@ import urllib.parse
 import json
 from datetime import date, timedelta
 
-BACKEND_URL = 'http://127.0.0.1:8000'
-FRONTEND_URL = 'http://127.0.0.1:5173'
+BACKEND_URL = 'https://journal-gwzb.onrender.com'
+FRONTEND_URL = 'https://journal-zeta-six.vercel.app'
 
 def run_e2e_http_tests():
     print("=" * 60)

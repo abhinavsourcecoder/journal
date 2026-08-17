@@ -2,6 +2,7 @@
 Django settings for gratitude_backend project.
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -12,7 +13,7 @@ SECRET_KEY = 'django-insecure-p99lkf!^984l!lz7erlhaty2&-(xt!#vig89##a&!lbvv5%r&r
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['']
 
 # Application definition
 INSTALLED_APPS = [
@@ -108,9 +109,7 @@ REST_FRAMEWORK = {
 }
 
 # CORS Settings
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOWED_ORIGINS = [
-    "https://journal-zeta-six.vercel.app/",
-]
+
