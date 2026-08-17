@@ -3,7 +3,7 @@ import urllib.parse
 import json
 from datetime import date, timedelta
 
-BACKEND_URL = 'https://journal-gwzb.onrender.com'
+BACKEND_URL = 'https://journal-43cx.onrender.com'
 FRONTEND_URL = 'https://journal-zeta-six.vercel.app'
 
 def run_e2e_http_tests():

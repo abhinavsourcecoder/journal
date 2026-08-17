@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-p99lkf!^984l!lz7erlhaty2&-(xt!#vig89##a&!lbvv5%r&r
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['']
+ALLOWED_HOSTS = ['https://journal-43cx.onrender.com']
 
 # Application definition
 INSTALLED_APPS = [
@@ -112,4 +112,6 @@ REST_FRAMEWORK = {
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOW_CREDENTIALS = True
 
-
+CORS_ALLOWED_ORIGINS = [
+    "https://journal-zeta-six.vercel.app",
+]

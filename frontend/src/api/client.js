@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+const API_BASE_URL =import.meta.env.VITE_API_URL || 'https://journal-43cx.onrender.com/api/';
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
+  timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -25,8 +26,10 @@ apiClient.interceptors.request.use(
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
+    if (!error.response) {
+      console.error('Network Error / Backend Unreachable. Check CORS or Render spin-up:', error.message);
+    }
     if (error.response && error.response.status === 401) {
-      // Clear token on 401 if not logging in
       const isAuthUrl = error.config.url.includes('/auth/login') || error.config.url.includes('/auth/register');
       if (!isAuthUrl) {
         localStorage.removeItem('gratitude_token');
